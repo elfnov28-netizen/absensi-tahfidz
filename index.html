@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Absensi Tahfidz - MTs Alkarimiyah</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<div class="container">
+
+    <header class="header">
+        <h1>📚 MTs Alkarimiyah</h1>
+        <p>Sistem Absensi Tahfidz</p>
+    </header>
+
+    <div class="card">
+
+        <div class="top-menu">
+
+            <div>
+                <label>Kelas</label>
+                <select id="kelas">
+                    <option>VIII.1</option>
+                    <option>VIII.2</option>
+                    <option>VIII.3</option>
+                    <option>VIII.4</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Tanggal</label>
+                <input type="date" id="tanggal">
+            </div>
+
+        </div>
+
+        <input
+            type="text"
+            id="search"
+            placeholder="🔍 Cari Nama Siswa..."
+        >
+
+        <table>
+
+            <thead>
+
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Status</th>
+            </tr>
+
+            </thead>
+
+            <tbody id="tbody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
