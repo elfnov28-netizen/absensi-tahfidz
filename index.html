@@ -6,8 +6,18 @@
   <title>Absensi Tahfidz - MTs Alkarimiyah</title>
   <link rel="stylesheet" href="style.css">
 </head>
+  <script>
+function logout(){
+localStorage.removeItem("loginTahfidz");
+window.location.href="login.html";
+}
+</script>
 <body>
-
+<script>
+if(localStorage.getItem("loginTahfidz") !== "aktif"){
+    window.location.href="login.html";
+}
+</script>
 <div class="container">
 
     <header class="header">
@@ -44,6 +54,9 @@
 <a href="dashboard.html" class="dashboard-btn">
     📊 Dashboard
 </a>
+      <button onclick="logout()">
+🚪 Logout
+</button>
         <table>
 <button id="simpan">
     💾 Simpan Absensi
