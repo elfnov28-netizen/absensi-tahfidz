@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Login Tahfidz</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h2>🔐 Login Guru</h2>
+
+<input type="password" id="pin" placeholder="Masukkan PIN">
+
+<button onclick="login()">
+Masuk
+</button>
+
+<p id="pesan"></p>
+
+</div>
+
+</div>
+
+
+<script>
+
+function login(){
+
+let pin = document.getElementById("pin").value;
+
+if(pin === "1234"){
+
+localStorage.setItem("loginTahfidz","aktif");
+
+window.location.href="index.html";
+
+}else{
+
+document.getElementById("pesan").innerHTML="❌ PIN salah";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
