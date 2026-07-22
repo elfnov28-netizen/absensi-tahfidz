@@ -1,6 +1,9 @@
 const tbody = document.getElementById("tbody");
 const kelas = document.getElementById("kelas");
 const search = document.getElementById("search");
+const tanggal = document.getElementById("tanggal");
+const simpan = document.getElementById("simpan");
+
 
 function render() {
 
@@ -10,46 +13,109 @@ function render() {
 
     const daftar = siswa[kelas.value];
 
+
     daftar
-        .filter(nama => nama.toLowerCase().includes(keyword))
-        .forEach((nama,index)=>{
+    .filter(nama => nama.toLowerCase().includes(keyword))
+    .forEach((nama,index)=>{
 
-            tbody.innerHTML += `
-            <tr>
 
-                <td>${index+1}</td>
+        tbody.innerHTML += `
 
-                <td style="text-align:left;padding-left:15px;">
-                    ${nama}
-                </td>
+        <tr>
 
-                <td>
+            <td>${index+1}</td>
 
-                    <select>
+            <td style="text-align:left;padding-left:15px;">
+                ${nama}
+            </td>
 
-                        <option value="">-</option>
 
-                        <option>✅ Hadir</option>
+            <td>
 
-                        <option>🟡 Izin</option>
+                <select class="status">
 
-                        <option>🔵 Sakit</option>
+                    <option value="">-</option>
 
-                        <option>🔴 Alpha</option>
+                    <option>✅ Hadir</option>
 
-                    </select>
+                    <option>🟡 Izin</option>
 
-                </td>
+                    <option>🔵 Sakit</option>
 
-            </tr>
-            `;
+                    <option>🔴 Alpha</option>
 
-        });
+                </select>
+
+            </td>
+
+        </tr>
+
+        `;
+
+
+    });
 
 }
+
+
+
+simpan.addEventListener("click",()=>{
+
+
+    let dataAbsensi =
+    JSON.parse(localStorage.getItem("absensi")) || [];
+
+
+    const tanggalSekarang = tanggal.value;
+
+
+    document.querySelectorAll("#tbody tr")
+    .forEach((row)=>{
+
+
+        let nama =
+        row.children[1].innerText;
+
+
+        let status =
+        row.querySelector(".status").value;
+
+
+
+        if(status!=""){
+
+            dataAbsensi.push({
+
+                tanggal:tanggalSekarang,
+                kelas:kelas.value,
+                nama:nama,
+                status:status
+
+            });
+
+        }
+
+
+    });
+
+
+
+    localStorage.setItem(
+        "absensi",
+        JSON.stringify(dataAbsensi)
+    );
+
+
+    alert("Absensi berhasil disimpan");
+
+
+});
+
+
 
 kelas.addEventListener("change",render);
 
 search.addEventListener("input",render);
+
 
 render();
