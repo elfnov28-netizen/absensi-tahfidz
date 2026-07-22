@@ -67,11 +67,6 @@ simpan.addEventListener("click",()=>{
     let dataAbsensi =
     JSON.parse(localStorage.getItem("absensi")) || [];
 
-
-    let dataAbsensi =
-    JSON.parse(localStorage.getItem("absensi")) || [];
-
-
     const tanggalSekarang = tanggal.value;
 
 
