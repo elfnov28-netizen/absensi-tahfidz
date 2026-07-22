@@ -61,6 +61,12 @@ function render() {
 
 simpan.addEventListener("click",()=>{
 
+    console.log("TOMBOL SIMPAN TERTEKAN");
+
+
+    let dataAbsensi =
+    JSON.parse(localStorage.getItem("absensi")) || [];
+
 
     let dataAbsensi =
     JSON.parse(localStorage.getItem("absensi")) || [];
